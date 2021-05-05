@@ -3,11 +3,34 @@
     "version": "1.0.0",
     "description": "Simple webiste boilterplate",
     "scripts": {
-        "scss": "node-sass --output-style compressed -o dist/styles src/styles"
+        "build:scss": "node-sass --output-style compressed -o dist/styles src/styles",
+        "watch:scss": "onchange -i -v \"./src/styles/*.scss\" -- npm run build:scss",
+        "build:js": "eslint --fix ./src/js/*.js",
+        "watch:js": "onchange -i -v \"./src/js/*.js\" -- eslint --fix ./src/js/*.js",
+        "start": "browser-sync -s -f \"./index.html, dist/**/*, src/**/*\"",
+        "watch:all": "concurrently \"npm start\" \"npm run watch:scss\" \"npm run watch:js\""
     },
     "author": "Wiktor Dębski",
     "license": "MIT",
     "devDependencies": {
-        "node-sass": "^5.0.0"
+        "concurrently": "^6.0.2",
+        "eslint": "^7.25.0",
+        "eslint-plugin-import": "^2.22.1",
+        "eslint-plugin-prettier": "^3.4.0",
+        "node-sass": "^5.0.0",
+        "onchange": "^7.1.0",
+        "prettier": "^2.2.1",
+        "prettier-eslint": "^12.0.0",
+        "husky": "^4.3.8",
+        "lint-staged": "^10.5.4"
+    },
+    "dependencies": {},
+    "husky": {
+        "hooks": {
+          "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.js": ["eslint", "prettier --write"]
     }
 }
