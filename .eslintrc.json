@@ -11,6 +11,7 @@
         "ecmaVersion": 12,
         "sourceType": "module"
     },
+    "ignorePatterns": ["webpack.config.js"],
     "plugins": ["prettier"],
     "rules": {
         "prefer-const": ["error", {
