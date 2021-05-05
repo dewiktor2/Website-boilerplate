@@ -1,0 +1,13 @@
+{
+    "name": "wd-webiste-boilterplate",
+    "version": "1.0.0",
+    "description": "Simple webiste boilterplate",
+    "scripts": {
+        "scss": "node-sass --output-style compressed -o dist/styles src/styles"
+    },
+    "author": "Wiktor Dębski",
+    "license": "MIT",
+    "devDependencies": {
+        "node-sass": "^5.0.0"
+    }
+}
