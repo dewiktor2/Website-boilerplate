@@ -5,7 +5,7 @@
     "scripts": {
         "start": "cross-env NODE_ENV=development webpack serve --config config/webpack.dev.js",
         "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js",
-        "deploy": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js && gh-pages -d dist",
+        "deploy": "cross-env NODE_ENV=gh webpack --config config/webpack.gh.js && gh-pages -d dist",
         "lint": "eslint ./src/js/**",
         "lint:fix": "eslint ./src/js/** --fix",
         "prettier": "prettier --config .prettierrc.json --write ./src/js/**"

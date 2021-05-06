@@ -19,6 +19,13 @@ module.exports = {
   plugins: [
     // Removes/cleans build folders and unused assets when rebuilding
     new CleanWebpackPlugin(),
+    // Generates an HTML file from a template
+    new HtmlWebpackPlugin({
+      title: '',
+      favicon: paths.src + '/images/favicon.png',
+      template: paths.src + '/index.html', // template file
+      filename: 'index.html', // output file
+    }),
     new CopyWebpackPlugin({
       patterns: [
         'src/manifest.webmanifest',
