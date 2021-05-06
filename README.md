@@ -41,9 +41,9 @@ cd dist && http-server
 ## Features
 
 - [webpack](https://webpack.js.org/) - Module and asset bundler
-- [Babel](https://babeljs.io/)
-- [Sass](https://sass-lang.com/)
-- [PostCSS](https://postcss.org/)
+- [Babel](https://babeljs.io/) -  Transpile JS files
+- [Sass](https://sass-lang.com/) - CSS Preprocessor
+- [PostCSS](https://postcss.org/) Process CSS with PostCSS with JS
 - [ESlint](https://github.com/eslint/eslint) -  Enforce styleguide across application
 - [Prettier](https://github.com/prettier/prettier) - Code formatter
 - [Husky](https://github.com/typicode/husky) - Git hooks ( prettier, eslint use before commit)
