@@ -1,9 +1,5 @@
 # Website-boilerplate
 
-
-
-# Website-boilerplate
-
 Website boilerplate with webpack 5 using Babel, PostCSS, Sass and hot dev server with production and dev configs.
 
 ## Installation
