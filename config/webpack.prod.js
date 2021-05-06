@@ -1,5 +1,6 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { merge } = require('webpack-merge');
 
 const paths = require('./paths');
@@ -34,6 +35,13 @@ module.exports = merge(common, {
     ],
   },
   plugins: [
+    // Generates an HTML file from a template
+    new HtmlWebpackPlugin({
+      title: 'Webite boilerplate',
+      favicon: paths.src + '/images/favicon.png',
+      template: paths.src + '/index.html', // template file
+      filename: 'index.html', // output file
+    }),
     // Extracts CSS into separate files
     new MiniCssExtractPlugin({
       filename: 'styles/[name].[contenthash].css',

@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 const { merge } = require('webpack-merge');
-
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const common = require('./webpack.common.js');
 const paths = require('./paths');
 
@@ -40,6 +40,13 @@ module.exports = merge(common, {
   },
 
   plugins: [
+    // Generates an HTML file from a template
+    new HtmlWebpackPlugin({
+      title: '',
+      favicon: paths.src + '/images/favicon.png',
+      template: paths.src + '/index.html', // template file
+      filename: 'index.html', // output file
+    }),
     // Only update what has changed on hot reload
     new webpack.HotModuleReplacementPlugin(),
   ],
