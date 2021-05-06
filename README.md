@@ -2,6 +2,9 @@
 
 Website boilerplate with webpack 5 using Babel, PostCSS, Sass and hot dev server with production and dev configs.
 
+[DEMO](https://dewiktor2.github.io/Website-boilerplate/)
+
+
 ## Installation
 
 Clone this repo and npm install.
