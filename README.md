@@ -2,6 +2,8 @@
 
 Website boilerplate with webpack 5 using Babel, PostCSS, Sass and hot dev server with production and dev configs.
 
+PWA supported :)(https://web.dev/progressive-web-apps/)
+
 [DEMO](https://dewiktor2.github.io/Website-boilerplate/)
 
 
