@@ -1,4 +1,6 @@
 @import 'variables';
+@import 'normalize';
+@import 'base';
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700&display=swap');
 
 * {
@@ -6,11 +8,13 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   background: #fdfdfd;
   font-family: 'Nunito', sans-serif;
   font-size: 1rem;
 }
+
 main {
   max-width: 900px;
   margin: auto;
