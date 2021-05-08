@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#db4938"/>
     <link rel="manifest" href="./manifest.webmanifest">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
     <!-- ios support -->
     <link rel="apple-touch-icon" href="images/icons/icon-48x48.png" />
     <link rel="apple-touch-icon" href="images/icons/icon-72x72.png" />
@@ -15,13 +16,10 @@
     <link rel="apple-touch-icon" href="images/icons/icon-144x144.png" />
     <link rel="apple-touch-icon" href="images/icons/icon-192x192.png" />
     <link rel="apple-touch-icon" href="images/icons/icon-512x512.png" />
-    <title>
-        <%= htmlWebpackPlugin.options.title %>
-    </title>
 </head>
 
 <body>
+    <%= require('./components/nav.html?raw') %>
     <main id="root"></main>
 </body>
-
 </html>
