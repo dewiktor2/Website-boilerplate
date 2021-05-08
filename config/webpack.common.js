@@ -4,28 +4,35 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const paths = require('./paths');
 
+const htmlPageNames = ['features'];
+
+// Features pages
+const htmlPlugins = htmlPageNames.map((name) => {
+  return new HtmlWebpackPlugin({
+    template: `./src/views/${name}.html`, // relative path to the HTML files
+    inject: true,
+    chunks: ['index', `${name}`], // respective JS files
+    filename: `${name}.html`, // output HTML files
+  });
+});
+
 module.exports = {
   // Where webpack looks to start building the bundle
-  entry: [paths.src + '/index.js'],
-
+  entry: {
+    index: './src/index.js',
+    features: './src/js/views/features.js',
+    style: './src/styles/index.scss',
+  },
   // Where webpack outputs the assets and bundles
   output: {
     path: paths.build,
     filename: '[name].bundle.js',
     publicPath: '/',
   },
-
   // Customize the webpack build process
   plugins: [
     // Removes/cleans build folders and unused assets when rebuilding
     new CleanWebpackPlugin(),
-    // Generates an HTML file from a template
-    new HtmlWebpackPlugin({
-      title: '',
-      favicon: paths.src + '/images/favicon.png',
-      template: paths.src + '/index.html', // template file
-      filename: 'index.html', // output file
-    }),
     new CopyWebpackPlugin({
       patterns: [
         'src/manifest.webmanifest',
@@ -33,11 +40,25 @@ module.exports = {
         { from: 'src/images/icons', to: 'images/icons' },
       ],
     }),
-  ],
+    new HtmlWebpackPlugin({
+      title: 'Website boilerplate',
+      favicon: paths.src + '/images/favicon.png',
+      template: paths.src + '/index.html', // template file
+      inject: true,
+      chunks: ['index'],
+      filename: 'index.html', // output file
+    }),
+  ].concat(htmlPlugins),
 
   // Determine how modules within the project are treated
   module: {
     rules: [
+      // https://webpack.js.org/guides/asset-modules/#replacing-inline-loader-syntax
+      {
+        resourceQuery: /raw/,
+        type: 'asset/source',
+      },
+
       // JavaScript: Use Babel to transpile JavaScript files
       { test: /\.js$/, use: ['babel-loader'] },
 
@@ -48,7 +69,6 @@ module.exports = {
       { test: /\.(woff(2)?|eot|ttf|otf|svg|)$/, type: 'asset/inline' },
     ],
   },
-
   resolve: {
     modules: [paths.src, 'node_modules'],
     extensions: ['.js', '.jsx', '.json'],
