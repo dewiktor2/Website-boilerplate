@@ -1,1 +1,1 @@
-const staticDev="website-boilerplate",assets=["/","index.html","images/icons"];self.addEventListener("install",(e=>{e.waitUntil(caches.open(staticDev).then((e=>{e.addAll(assets)})))})),self.addEventListener("fetch",(e=>{e.respondWith(caches.match(e.request).then((t=>t||fetch(e.request))))}));
+const staticDev="website-boilerplate",assets=["images/icons"];self.addEventListener("install",(e=>{e.waitUntil(caches.open(staticDev).then((e=>{e.addAll(assets)})))})),self.addEventListener("fetch",(e=>{e.respondWith(caches.match(e.request).then((t=>t&&fetch(e.request))))}));
