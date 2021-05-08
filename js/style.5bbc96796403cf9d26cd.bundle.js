@@ -1,0 +1,1 @@
+(self.webpackChunkwd_webiste_boilterplate=self.webpackChunkwd_webiste_boilterplate||[]).push([[296],{615:()=>{}},e=>{"use strict";e(e.s=615)}]);
