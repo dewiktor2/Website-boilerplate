@@ -1,7 +1,7 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
+const webpack = require('webpack');
 const paths = require('./paths');
 
 const htmlPageNames = ['features'];
@@ -47,6 +47,9 @@ module.exports = {
       inject: true,
       chunks: ['index'],
       filename: 'index.html', // output file
+    }),
+    new webpack.DefinePlugin({
+      BASE_URL: JSON.stringify(''),
     }),
   ].concat(htmlPlugins),
 
