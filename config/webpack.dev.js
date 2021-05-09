@@ -12,7 +12,7 @@ module.exports = merge(common, {
   // Spin up a server for quick development
   devServer: {
     historyApiFallback: true,
-    contentBase: ['./src/**', './src/components/**'],
+    contentBase: ['./src/**'],
     watchContentBase: true,
     open: true,
     compress: true,
