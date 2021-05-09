@@ -206,11 +206,15 @@ p {
   }
 
   .footer .flex {
-    padding-left: 100px;
+    flex-direction: column;
   }
 
   .footer .social {
     margin: 0;
+    a {
+      margin: 0;
+      padding-right: 10px;
+    }
   }
 
   .showcase-text,
