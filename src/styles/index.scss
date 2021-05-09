@@ -1,27 +1,213 @@
 @import 'variables';
 @import 'normalize';
 @import 'base';
+@import 'utilities';
+@import 'animations';
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700&display=swap');
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
-  background: $ui-white;
+  display: block !important;
   font-family: 'Nunito', sans-serif;
   font-size: 1rem;
+  background: $ui-white;
+  line-height: 1.7;
 }
 
-main {
-  max-width: 900px;
-  margin: auto;
-  padding: 0.5rem;
+img {
+  width: 100%;
+}
+
+h1,
+h2 {
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 10px 0;
+}
+
+p {
+  margin: 10px 0;
+}
+
+/*** 1.0 - Navbar  ***/
+.navbar .flex {
+  background-color: $ui-primary;
+  color: $ui-white;
+  height: 70px;
+  justify-content: space-between;
+
+  nav ul {
+    display: flex;
+  }
+
+  a {
+    color: $ui-white;
+    padding: 10px;
+    margin: 0 5px;
+    &:hover {
+      border-bottom: 2px $ui-white solid;
+    }
+  }
+}
+
+/* Showcase */
+.showcase {
+  height: 400px;
+  background-color: $ui-primary;
+  color: $ui-white;
+  position: relative;
+
+  h1 {
+    font-size: 40px;
+  }
+
+  p {
+    margin: 20px 0;
+  }
+
+  .grid {
+    overflow: visible;
+    grid-template-columns: 55% 45%;
+    gap: 30px;
+  }
+
+  &-text {
+    animation: slidein 1.5s;
+  }
+}
+
+.showcase::before,
+.showcase::after {
+  content: 'Hello';
+  position: absolute;
+  height: 100px;
+  bottom: -70px;
+  right: 0;
+  left: 0;
+  background: $ui-white;
+  transform: skewY(-3deg);
+}
+
+.showcase-form {
+  position: relative;
+  top: 60px;
+  padding: 40px;
+  height: 350px;
+  width: 400px;
+  z-index: 100;
+  justify-self: flex-end;
+
+  .form-control {
+    margin: 30px 0;
+  }
+
+  input:focus {
+    outline: none;
+  }
+
+  input[type='text'],
+  input[type='email'] {
+    border: 0;
+    border-bottom: 1px solid $ui-secondary-light;
+    width: 100%;
+    padding: 3px;
+    font-size: 16px;
+  }
+}
+
+/* Stats */
+.stats {
+  padding-top: 100px;
+  color: $ui-secondary;
+  animation: fadein 1.5s;
+  &-heading {
+    max-width: 500px;
+    margin: auto;
+  }
+  .grid h3 {
+    font-size: 35px;
+  }
+  .grid p {
+    font-size: 20px;
+    font-weight: 300;
+  }
+}
+
+/* Projects */
+.projects .flex {
+  flex-wrap: wrap;
+}
+
+.projects .card {
   text-align: center;
+  margin: 18px 10px 40px;
+  transition: transform 0.2s ease-in;
+  will-change: transform;
+
+  h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  &:hover {
+    transform: translateY(-15px);
+  }
 }
 
-a {
-  text-decoration: none;
+/* Footer */
+.footer .social {
+  margin-left: auto;
+  a {
+    margin: 0 10px;
+  }
+}
+
+.footer .flex {
+  justify-content: left;
+}
+
+/* Tablets and under */
+@media (max-width: 768px) {
+  .grid,
+  .showcase .grid,
+  .stats .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .showcase {
+    height: auto;
+
+    &-text {
+      text-align: center;
+      margin-top: 40px;
+    }
+    &-form {
+      justify-self: center;
+      margin: auto;
+    }
+  }
+}
+
+/* Mobile */
+@media (max-width: 590px) {
+  .navbar .flex {
+    height: 110px;
+    flex-direction: column;
+
+    ul {
+      padding: 10px;
+    }
+  }
+
+  .footer .flex {
+    flex-direction: column;
+  }
+
+  .footer .social {
+    margin: 0;
+  }
+
+  .showcase-text,
+  .stats {
+    animation: none;
+  }
 }
