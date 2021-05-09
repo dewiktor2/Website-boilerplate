@@ -12,7 +12,7 @@ module.exports = merge(common, {
   // Spin up a server for quick development
   devServer: {
     historyApiFallback: true,
-    contentBase: ['./src/**'],
+    contentBase: ['./src/**', './src/components/**'],
     watchContentBase: true,
     open: true,
     compress: true,
@@ -29,7 +29,11 @@ module.exports = merge(common, {
           'style-loader',
           {
             loader: 'css-loader',
-            options: { sourceMap: true, importLoaders: 1, modules: true },
+            options: {
+              sourceMap: true,
+              importLoaders: 1,
+              modules: { localIdentName: '[local]' },
+            },
           },
           { loader: 'postcss-loader', options: { sourceMap: true } },
           { loader: 'sass-loader', options: { sourceMap: true } },

@@ -1,6 +1,7 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPartialsPlugin = require('html-webpack-partials-plugin');
 const paths = require('./paths');
 
 const htmlPageNames = ['features'];
@@ -37,6 +38,7 @@ module.exports = {
         'src/manifest.webmanifest',
         'service-worker.js',
         { from: 'src/images/icons', to: 'images/icons' },
+        { from: 'src/images/photos', to: 'images/photos' },
       ],
     }),
     new HtmlWebpackPlugin({
@@ -46,6 +48,11 @@ module.exports = {
       inject: true,
       chunks: ['index'],
       filename: 'index.html', // output file
+    }),
+    new HtmlWebpackPartialsPlugin({
+      path: paths.src + '/components/navigation.html',
+      location: 'navigation',
+      template_filename: ['index.html', 'features.html'],
     }),
   ].concat(htmlPlugins),
 
