@@ -38,7 +38,6 @@ module.exports = {
         'src/manifest.webmanifest',
         'service-worker.js',
         { from: 'src/images/icons', to: 'images/icons' },
-        { from: 'src/images/photos', to: 'images/photos' },
       ],
     }),
     new HtmlWebpackPlugin({
